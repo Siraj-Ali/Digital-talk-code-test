@@ -1,9 +1,9 @@
-# Translation Management Service
+* Translation Management Service
 
 A Laravel-based service for managing translations. 
 This service allows you to store and manage translations for different locales and device types (mobile, tablet, desktop).
 
-## Features
+* Features
 
 - Store translations for multiple locales
 - Device-specific translations (mobile, tablet, desktop)
@@ -28,7 +28,7 @@ This service allows you to store and manage translations for different locales a
 - MySQL
 - Composer
 
-## Installation
+* Installation
 
 1. Clone the repository:
 git clone <repository-url>
@@ -50,9 +50,6 @@ DB_USERNAME=root
 DB_PASSWORD=
 
 6. Run migrations:  php artisan migrate
-
-
-7. Generate Swagger documentation: php artisan l5-swagger:generate
 
 
 * Project Structure
@@ -106,22 +103,6 @@ php artisan translations:generate
 * Or specify a custom number of translations
 php artisan translations:generate 50000
 
-This will create:
-- Default users (admin and test user)
-- Default locales (en, es, fr)
-- Sample translations for each locale
-- Test translations for all device types (mobile, tablet, desktop)
-- Random number of translations based on the specified count (default: 100,000)
-
-* Test Data Structure
-The generated test translations include:
-- Common UI elements (buttons, labels, messages)
-- Error messages
-- Success messages
-- Navigation items
-- Form labels and placeholders
-- Device-specific content variations
-
 * Available Device Types
 - `desktop`: Full desktop experience
 - `tablet`: Tablet-optimized content
@@ -136,23 +117,16 @@ The generated test translations include:
 - `navigation`: Navigation items
 - `forms`: Form-related content
 
-* API Documentation
-
-The API documentation is available at `/api/documentation` after running the Swagger generation command.
-
 * Authentication
 
 All API endpoints are protected with token-based authentication using Laravel Sanctum. To access the API:
 
 1. Create a personal access token:
-```bash
+
 php artisan sanctum:token
-```
 
 2. Include the token in your API requests:
-```
 Authorization: Bearer your-token-here
-```
 
 * Available Api Endpoints
 
