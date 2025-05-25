@@ -16,7 +16,7 @@ use Illuminate\Validation\ValidationException;
 
 class TranslationController extends Controller
 {
-    use HttpResponse;
+    use HttpResponse; 
     /**
      * Constructor with dependency injection
      */
