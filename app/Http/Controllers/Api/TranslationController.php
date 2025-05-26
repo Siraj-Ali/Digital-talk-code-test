@@ -111,7 +111,18 @@ class TranslationController extends Controller
 
     /**
      * Create a new translation record
-     *
+     *      Post(
+        *     path="/api/translations",
+         *     summary="Create a new translation",
+         *     description="Add a new translation to the system",
+         *     operationId="createTranslation",
+         *     tags={"Translations"},
+         *     security={{"bearerAuth":{}}},
+         *     @OA\RequestBody(
+         *         required=true,
+         *         description="Translation data",
+         *         @OA\JsonContent(ref="#/components/schemas/TranslationRequest")
+         *  
      *     Response:
      *         response=200,
      *         description="Translation created successfully",
@@ -127,7 +138,7 @@ class TranslationController extends Controller
      *     Response:
      *         response=500,
      *         description="Server error",
-     *    
+     *    )
      */
     public function store(TranslationRequest $request)
     {
@@ -154,7 +165,20 @@ class TranslationController extends Controller
 
     /**
      * Get a specific translation record by ID
-     *
+     *   Get(
+     *     path="/api/translations/{id}",
+     *     summary="Get a specific translation",
+     *     description="Retrieve details for a single translation by its ID",
+     *     operationId="getTranslation",
+     *     tags={"Translations"},
+     *     security={{"bearerAuth":{}}},
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         required=true,
+     *         description="Translation ID",
+     *         @OA\Schema(type="integer", format="int64")
+     *     ),
      *     Response:
      *         response=200,
      *         description="Translation details"
@@ -190,7 +214,20 @@ class TranslationController extends Controller
 
     /**
      * Update an existing translation record
-     *
+     *     Put(
+     *     path="/api/translations/{id}",
+     *     summary="Update a translation",
+     *     description="Update an existing translation",
+     *     operationId="updateTranslation",
+     *     tags={"Translations"},
+     *     security={{"bearerAuth":{}}},
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         required=true,
+     *         description="Translation ID",
+     *         @OA\Schema(type="integer", format="int64")
+     *     ),
      *     RequestBody:
      *         required=true,
      *         description="Translation data",
@@ -239,7 +276,20 @@ class TranslationController extends Controller
 
     /**
      * Delete a translation record
-     *
+     *     Delete(
+     *     path="/api/translations/{id}",
+     *     summary="Delete a translation",
+     *     description="Remove a translation from the system",
+     *     operationId="deleteTranslation",
+     *     tags={"Translations"},
+     *     security={{"bearerAuth":{}}},
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         required=true,
+     *         description="Translation ID",
+     *         @OA\Schema(type="integer", format="int64")
+     *     ),
      *     Response:
      *         response=200,
      *         description="Translation deleted successfully",
@@ -273,7 +323,20 @@ class TranslationController extends Controller
 
     /**
      * Get translations record by locale code
-     *
+     *     Get(
+     *     path="/api/translations/locale/{locale}",
+     *     summary="Get translations by locale",
+     *     description="Retrieve all translations for a specific locale code with optional device type filtering",
+     *     operationId="getTranslationsByLocale",
+     *     tags={"Translations"},
+     *     security={{"bearerAuth":{}}},
+     *     @OA\Parameter(
+     *         name="locale",
+     *         in="path",
+     *         required=true,
+     *         description="Locale code (e.g., en, es, fr)",
+     *         @OA\Schema(type="string")
+     *     ),
      *     Parameter:
      *         name="device_type",
      *         in="query",
